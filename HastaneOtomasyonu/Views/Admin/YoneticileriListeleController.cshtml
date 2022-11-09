@@ -1,0 +1,73 @@
+﻿@model IEnumerable<HastaneOtomasyon.Models.Yonetici>
+
+@{
+    ViewData["Title"] = "YoneticileriListeleController";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>YoneticileriListeleController</h1>
+
+<p>
+    <a class="btn btn-success" asp-action="BilgileriGoster">Bilgileri Göster</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                AD
+            </th>
+            <th>
+                SOYAD
+            </th>
+            <th>
+                EMAIL
+            </th>
+            <th>
+                SIFRE
+            </th>
+            <th>
+                TCNO
+            </th>
+            <th>
+                MAAS
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.Ad
+                </td>
+                <td>
+                    @item.Soyad
+                </td>
+                <td>
+                    @item.Email
+                </td>
+                <td>
+                    @item.Sifre
+                </td>
+                <td>
+                    @item.TcNo
+                </td>
+                <td>
+                    @item.Maas
+                </td>
+                <td>
+                    <a class="btn btn-success" asp-action="YoneticiGuncelle" asp-route-id="@item.Id">Yönetici Güncelle</a> |
+                    <a class="btn btn-success" asp-action="YoneticiSil" asp-route-id="@item.Id">Yönetici Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

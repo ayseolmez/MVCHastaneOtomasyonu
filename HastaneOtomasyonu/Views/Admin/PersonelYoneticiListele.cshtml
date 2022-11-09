@@ -1,0 +1,143 @@
+﻿@model HastaneOtomasyon.Models.PersonelYoneticiVM
+
+@{
+    ViewData["Title"] = "PersonelYoneticiListele";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>PersonelYoneticiListele</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                AD
+            </th>
+            <th>
+                SOYAD
+            </th>
+            <th>
+                MAIL
+            </th>
+            <th>
+                SIFRE
+            </th>
+            <th>
+                BIRIM
+            </th>
+            <th>
+                TCNO
+            </th>
+            <th>
+                MAAS
+            </th>
+            <th>
+                STATUS
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Personeller)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.Ad
+                </td>
+                <td>
+                    @item.Soyad
+                </td>
+                <td>
+                    @item.Email
+                </td>
+                <td>
+                    @item.Sifre
+                </td>
+                <td>
+                    @item.Birim
+                </td>
+                <td>
+                    @item.TcNo
+                </td>
+                <td>
+                    @item.Maas
+                </td>
+                <td>
+                    @item.Status
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<hr />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                AD
+            </th>
+            <th>
+                SOYAD
+            </th>
+            <th>
+                MAIL
+            </th>
+            <th>
+                SIFRE
+            </th>
+            <th>
+                TCNO
+            </th>
+            <th>
+                MAAS
+            </th>
+            <th>
+                STATUS
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Yoneticiler)
+        {
+            <tr>
+                <td>
+                    @item.Id
+                </td>
+                <td>
+                    @item.Ad
+                </td>
+                <td>
+                    @item.Soyad
+                </td>
+                <td>
+                    @item.Email
+                </td>
+                <td>
+                    @item.Sifre
+                </td>
+                <td>
+                    @item.TcNo
+                </td>
+                <td>
+                    @item.Maas
+                </td>
+                <td>
+                    @item.Status
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,79 @@
+﻿@model IEnumerable<HastaneOtomasyon.Models.IKullanici>
+
+@{
+    ViewData["Title"] = "YoneticileriListeleView";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>YoneticileriListeleView</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                ID
+            </th>
+            <th>
+                AD
+            </th>
+            <th>
+                SOYAD
+            </th>
+            <th>
+                EMAIL
+            </th>
+            <th>
+                SIFRE
+            </th>
+            <th>
+                TCNO
+            </th>
+            <th>
+                MAAS
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            if (item is Yonetici)
+            {
+                Yonetici yonetici = (Yonetici)item;
+                <tr>
+                    <td>
+                        @yonetici.Id
+                    </td>
+                    <td>
+                        @yonetici.Ad
+                    </td>
+                    <td>
+                        @yonetici.Soyad
+                    </td>
+                    <td>
+                        @yonetici.Email
+                    </td>
+                    <td>
+                        @yonetici.Sifre
+                    </td>
+                    <td>
+                        @yonetici.TcNo
+                    </td>
+                    <td>
+                        @yonetici.Maas
+                    </td>
+
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                </tr>
+
+            }
+        }
+    </tbody>
+</table>
